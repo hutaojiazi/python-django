@@ -8,7 +8,7 @@ class Project(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     technology = models.CharField(max_length=255)
-    image = models.FilePathField(path="/img")
+    image = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

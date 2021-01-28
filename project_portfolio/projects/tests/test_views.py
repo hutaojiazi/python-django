@@ -14,13 +14,13 @@ class GetAllProjectsTest(TestCase):
 
     def setUp(self):
         Project.objects.create(
-            title='Python examples', description='Python project description', technology='Python', image='img/project1.png')
+            title='Python examples', description='Python project description', technology='Python', image='project1.png')
         Project.objects.create(
-            title='Java examples', description='Java project description', technology='Java', image='img/project2.png')
+            title='Java examples', description='Java project description', technology='Java', image='project2.png')
         Project.objects.create(
-            title='Angular examples', description='Angular project description', technology='Angular', image='img/project3.png')
+            title='Angular examples', description='Angular project description', technology='Angular', image='project3.png')
         Project.objects.create(
-            title='React examples', description='React project description', technology='React', image='img/project4.png')
+            title='React examples', description='React project description', technology='React', image='project4.png')
 
     def test_get_all_projects(self):
         # get API response
@@ -37,13 +37,13 @@ class GetSingleProjectTest(TestCase):
 
     def setUp(self):
         self.python = Project.objects.create(
-            title='Python examples', description='Python project description', technology='Python', image='img/project1.png')
+            title='Python examples', description='Python project description', technology='Python', image='project1.png')
         self.java = Project.objects.create(
-            title='Java examples', description='Java project description', technology='Java', image='img/project2.png')
+            title='Java examples', description='Java project description', technology='Java', image='project2.png')
         self.angular = Project.objects.create(
-            title='Angular examples', description='Angular project description', technology='Angular', image='img/project3.png')
+            title='Angular examples', description='Angular project description', technology='Angular', image='project3.png')
         self.react = Project.objects.create(
-            title='React examples', description='React project description', technology='React', image='img/project4.png')
+            title='React examples', description='React project description', technology='React', image='project4.png')
 
     def test_get_valid_single_project(self):
         response = client.get(
@@ -67,14 +67,14 @@ class CreateNewProjectTest(TestCase):
             'title': 'Java project',
             'description': 'A brand new Java project',
             'technology': 'Java',
-            'image': 'img/project1.png'
+            'image': 'project1.png'
         }
 
         self.invalid_payload = {
             'title': '',
             'description': 'A invalid Java project',
             'technology': 'Java',
-            'image': 'img/project1.png'
+            'image': 'project1.png'
         }
 
     def test_create_valid_project(self):
@@ -98,21 +98,21 @@ class UpdateSingleProjectTest(TestCase):
 
     def setUp(self):
         self.python = Project.objects.create(
-            title='Python examples', description='Python project description', technology='Python', image='img/project1.png')
+            title='Python examples', description='Python project description', technology='Python', image='project1.png')
         self.java = Project.objects.create(
-            title='Java examples', description='Java project description', technology='Java', image='img/project2.png')
+            title='Java examples', description='Java project description', technology='Java', image='project2.png')
         self.valid_payload = {
             'title': 'Java project',
             'description': 'A brand new Java project',
             'technology': 'Java',
-            'image': 'img/project1.png'
+            'image': 'project1.png'
         }
 
         self.invalid_payload = {
             'title': '',
             'description': 'A invalid Java project',
             'technology': 'Java',
-            'image': 'img/project1.png'
+            'image': 'project1.png'
         }
 
     def test_valid_update_project(self):
@@ -136,9 +136,9 @@ class DeleteSingleProjectTest(TestCase):
 
     def setUp(self):
         self.python = Project.objects.create(
-            title='Python examples', description='Python project description', technology='Python', image='img/project1.png')
+            title='Python examples', description='Python project description', technology='Python', image='project1.png')
         self.java = Project.objects.create(
-            title='Java examples', description='Java project description', technology='Java', image='img/project2.png')
+            title='Java examples', description='Java project description', technology='Java', image='project2.png')
 
     def test_valid_delete_project(self):
         response = client.delete(

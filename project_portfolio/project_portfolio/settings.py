@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'projects',
+    'blog',
     'rest_framework'
 ]
 
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'project_portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["project_portfolio/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

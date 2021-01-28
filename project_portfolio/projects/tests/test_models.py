@@ -7,9 +7,9 @@ class ProjectTest(TestCase):
 
     def setUp(self):
         Project.objects.create(
-            title='Python examples', description='Python project description', technology='Python', image='img/project1.png')
+            title='Python examples', description='Python project description', technology='Python', image='project1.png')
         Project.objects.create(
-            title='Java examples', description='Java project description', technology='Java', image='img/project2.png')
+            title='Java examples', description='Java project description', technology='Java', image='project2.png')
 
     def test_project_description(self):
         project_python = Project.objects.get(name='Python examples')

@@ -1,6 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import render
 from .models import Project
 from .serializers import ProjectSerializer
 
@@ -42,10 +43,24 @@ def get_post_projects(request):
             'title': request.data.get('title'),
             'description': request.data.get('description'),
             'technology': request.data.get('technology'),
-            'image': request.data.get('image')
+            'image': 'img/' + request.data.get('image')
         }
         serializer = ProjectSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def project_index(request):
+    projects = Project.objects.all()
+    context = {
+        'projects': projects
+    }
+    return render(request, 'project_index.html', context)
+
+def project_detail(request, pk):
+    project = Project.objects.get(pk=pk)
+    context = {
+        'project': project
+    }
+    return render(request, 'project_detail.html', context)
