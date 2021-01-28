@@ -12,13 +12,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Puppy',
+            name='Project',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('age', models.IntegerField()),
-                ('breed', models.CharField(max_length=255)),
-                ('color', models.CharField(max_length=255)),
+                ('title', models.CharField(max_length=255)),
+                ('description', models.TextField()),
+                ('technology', models.CharField(max_length=255)),
+                ('image', models.FilePathField(path="/img")),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],

@@ -1,28 +1,28 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Puppy
-from .serializers import PuppySerializer
+from .models import Project
+from .serializers import ProjectSerializer
 
 
 @api_view(['GET', 'DELETE', 'PUT'])
-def get_delete_update_puppy(request, pk):
+def get_delete_update_project(request, pk):
     try:
-        puppy = Puppy.objects.get(pk=pk)
-    except Puppy.DoesNotExist:
+        project = Project.objects.get(pk=pk)
+    except Project.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    # get details of a single puppy
+    # get details of a single project
     if request.method == 'GET':
-        serializer = PuppySerializer(puppy)
+        serializer = ProjectSerializer(project)
         return Response(serializer.data)
-    # delete a single puppy
+    # delete a single project
     elif request.method == 'DELETE':
-        puppy.delete()
+        project.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    # update details of a single puppy
+    # update details of a single project
     elif request.method == 'PUT':
-        serializer = PuppySerializer(puppy, data=request.data)
+        serializer = ProjectSerializer(project, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
@@ -30,21 +30,21 @@ def get_delete_update_puppy(request, pk):
 
 
 @api_view(['GET', 'POST'])
-def get_post_puppies(request):
-    # get all puppies
+def get_post_projects(request):
+    # get all projects
     if request.method == 'GET':
-        puppies = Puppy.objects.all()
-        serializer = PuppySerializer(puppies, many=True)
+        projects = Project.objects.all()
+        serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
-    # insert a new record for a puppy
+    # insert a new record for a project
     elif request.method == 'POST':
         data = {
-            'name': request.data.get('name'),
-            'age': int(request.data.get('age')),
-            'breed': request.data.get('breed'),
-            'color': request.data.get('color')
+            'title': request.data.get('title'),
+            'description': request.data.get('description'),
+            'technology': request.data.get('technology'),
+            'image': request.data.get('image')
         }
-        serializer = PuppySerializer(data=data)
+        serializer = ProjectSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
