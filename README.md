@@ -42,3 +42,7 @@ Sample payload:
 "technology": "Angular",
 "image": "project3.png"
 }
+
+## Reference
+
+https://realpython.com/get-started-with-django-1/
