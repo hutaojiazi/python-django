@@ -1,4 +1,4 @@
-Sample for Python/Django REST API
+Sample for Python/Django REST API (postgres database)
 
 start postgresql db with docker
 
