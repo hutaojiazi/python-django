@@ -2,6 +2,8 @@ Sample for Python/Django REST API
 
 start postgresql db with docker
 
+python3 -m venv env
+
 For Mac: source env/bin/activate
 
 For Windows: env/Scripts/activate.bat
