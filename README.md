@@ -7,6 +7,7 @@ Example for Python/Django (postgres database)
 * python3 -m venv env
 
 * Mac: source env/bin/activate
+
   Windows: env/Scripts/activate.bat
 
 * pip install django
@@ -14,6 +15,7 @@ Example for Python/Django (postgres database)
 * pip install djangorestframework
 
 * Mac: pip install psycopg2-binary
+
   Windows: pip install psycopg2
 
 * python3.9 manage.py migrate
