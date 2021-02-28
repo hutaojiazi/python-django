@@ -1,5 +1,7 @@
 Sample for Python/Django REST API (postgres database)
 
+## Start the application
+
 start postgresql db with docker
 
 python3 -m venv env
@@ -20,7 +22,8 @@ python3.9 manage.py migrate
 
 python3.9 manage.py runserver
 
-Sample payload:
+## Sample payload:
+
 {
 "title": "Python examples",
 "description": "Python project description",
